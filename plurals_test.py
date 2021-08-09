@@ -1,6 +1,6 @@
 import pytest
 
-from plural import plural
+from plurals import plural
 
 
 @pytest.mark.parametrize(
