@@ -2,10 +2,9 @@ import re
 
 
 class LazyRules:
-    rules_filename = 'plural-rules.txt'
     
-    def __init__(self):
-        self.pattern_file = open(self.rules_filename, encoding='utf-8')
+    def __init__(self, rules_filename):
+        self.pattern_file = open(rules_filename, encoding='utf-8')
         self.cache = []
 
     def __iter__(self):
@@ -31,7 +30,7 @@ class LazyRules:
         return funcs
 
 
-rules = LazyRules()
+rules = LazyRules('plural-rules.txt')
 
 
 def build_match_and_apply_functions(pattern, search, replace):
