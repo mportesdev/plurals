@@ -9,17 +9,38 @@ from plurals import plural
         ('bass', 'basses'),
         ('fax', 'faxes'),
         ('waltz', 'waltzes'),
+    ]
+)
+def test_rule_1(noun, expected):
+    assert plural(noun) == expected
+
+
+@pytest.mark.parametrize(
+    'noun, expected',
+    [
         ('coach', 'coaches'),
         ('rash', 'rashes'),
         ('cheetah', 'cheetahs'),
         ('sigh', 'sighs'),
-        ('vacancy', 'vacancies'),
-        ('boy', 'boys'),
-        ('day', 'days'),
-        ('agency', 'agencies'),
     ]
 )
-def test_plural(noun, expected):
+def test_rule_2(noun, expected):
+    assert plural(noun) == expected
+
+
+@pytest.mark.parametrize(
+    'noun, expected',
+    [
+        ('lullaby', 'lullabies'),
+        ('agency', 'agencies'),
+        ('blasphemy', 'blasphemies'),
+        ('lorry', 'lorries'),
+        ('day', 'days'),
+        ('prey', 'preys'),
+        ('boy', 'boys'),
+    ]
+)
+def test_rule_3(noun, expected):
     assert plural(noun) == expected
 
 
@@ -32,5 +53,17 @@ def test_plural(noun, expected):
         ('scarf', 'scarves')
     ]
 )
-def test_irregular_plural(noun, expected):
+def test_rule_4(noun, expected):
+    assert plural(noun) == expected
+
+
+@pytest.mark.parametrize(
+    'noun, expected',
+    [
+        ('fat guy', 'fat guys'),
+        ('open the black box', 'open the black boxes'),
+        ('come on, baby', 'come on, babies'),
+    ]
+)
+def test_multi_word(noun, expected):
     assert plural(noun) == expected
