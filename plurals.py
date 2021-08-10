@@ -47,4 +47,4 @@ def plural(noun):
     for matches_rule, apply_rule in rules:
         if matches_rule(noun):
             return apply_rule(noun)
-    raise ValueError('no matching rule for {0}'.format(noun))
+    raise ValueError(f'no matching rule for {noun}')
